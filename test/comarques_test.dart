@@ -1,4 +1,4 @@
-import 'package:comarques/comarques.dart';
+import 'package:comarquesclirt';
 import 'package:test/test.dart';
 
 void main() {
