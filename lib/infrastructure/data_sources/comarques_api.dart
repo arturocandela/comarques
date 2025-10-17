@@ -45,7 +45,7 @@ class ComarquesApi {
 
   // Obté informació sobre una comarca concreta
   Future<Map<String, dynamic>> infoComarca(String comarca) async {
-    String url = "/comarques/infoComarca/$comarca";
+    String url = "$baseURL/infoComarca/$comarca";
 
     http.Response data = await http.get(Uri.parse(url));
 

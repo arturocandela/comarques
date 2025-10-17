@@ -53,10 +53,18 @@ class ComarquesRepositoryImpl implements ComarquesRepository {
 
   // Obté informació sobre una comarca concreta
   @override
-  Future<Comarca?> infoComarca(String comarca) async {
+  Future<Comarca> infoComarca(String comarca) async {
     // TO-DO:
     // Fer ús del data source (remote) per obtenir la informació de la comarca
     // Fer ús de ComarcaMapper (per implementar) per convertir el JSON
     // rebut en un objecte de tipus Comarca i retornar-lo.
+
+    try {
+      final jsonComarca = await remote.infoComarca(comarca);
+      return ComarcaeMapper.fromJson(jsonComarca);
+    } catch (e) {
+      print("\x1B[31mError al recuperar la Comarca: $e\x1B[0m");
+      return {} as Comarca;
+    }
   }
 }
