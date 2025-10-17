@@ -18,6 +18,6 @@ abstract class ComarquesRepository {
   // Obté una llista de Comarques (pertanyents a la província)
   Future<List<ComarcaSimple>> obtenirComarques(String provincia);
 
-  // TO-DO:
-  // Declarar el mètode infoComarca
+  // Obté la informació d'una comarca
+  Future<Comarca> infoComarca(String comarca);
 }

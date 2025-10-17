@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:comarquescli/domain/entities/comarca_simple.dart';
+import 'package:comarquescli/domain/entities/comarca.dart';
 import 'package:comarquescli/domain/entities/provincia.dart';
 import 'package:comarquescli/domain/repositories/comarques_repositori.dart';
 import 'package:comarquescli/infrastructure/comarques_repository_impl.dart';
@@ -135,18 +136,28 @@ class AppComarques {
     }
   }
 
-  mostraComarques(String provincia) {
-    // TO-DO:
+  mostraComarques(String provincia) async {
+    // La llista de comarques s'obté directament
+    List<ComarcaSimple> comarques =
+        await repository.obtenirComarques(provincia);
 
-    // Obtenir la llista de comarques simplificada i mostrar-la per pantalla
-    print("\x1B[35m Funció pendent d'implementació \x1B[0m");
+    if (comarques.isNotEmpty) {
+      for (var comarca in comarques) {
+        print(comarca.toString());
+      }
+    } else {
+      print("\x1B[31mNo s'ha obtingut cap resposta\x1B[0m");
+    }
   }
 
-  mostraInfoComarca(String comarca) {
-    // TO-DO
+  mostraInfoComarca(String comarca) async {
+    // La llista de províncies vindrà en un Future
+    Comarca respostaFuture = await repository.infoComarca(comarca);
 
-    // Obtenir la informació completa sobre la comarca indicada i mostrar-la
-
-    print("\x1B[35m Funció pendent d'implementació \x1B[0m");
+    if (respostaFuture != null) {
+      print(respostaFuture.toString());
+    } else {
+      print("\x1B[31mNo s'ha obtingut cap resposta\x1B[0m");
+    }
   }
 }
