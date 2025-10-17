@@ -45,14 +45,17 @@ class ComarquesApi {
 
   // Obté informació sobre una comarca concreta
   Future<Map<String, dynamic>> infoComarca(String comarca) async {
-    // TO-DO
+    String url = "/comarques/infoComarca/$comarca";
 
-    // Retorna la informació sobre la comarca, en format JSON, tal qual
-    // ve de l'API.
+    http.Response data = await http.get(Uri.parse(url));
 
-    // Compte!! que ara no és una llista, sinò un objecte, pel que
-    // no cal indicar el `as List`.
+    if (data.statusCode == HttpStatus.ok) {
+      String body = utf8.decode(data.bodyBytes);
+      final bodyJSON = jsonDecode(body) as Map<String, dynamic>;
 
-    return Future.error("No implementat encara");
+      return bodyJSON;
+    } else {
+      return {};
+    }
   }
 }
