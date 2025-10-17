@@ -5,7 +5,7 @@ class ComarcaeMapper {
   static Comarca fromJson(Map<String, dynamic> json) {
     return new Comarca(
       comarca: json["comarca"],
-      capital: json["capiral"],
+      capital: json["capital"],
       poblacio: json["poblacio"],
       img: json["img"],
       desc: json["desc"],

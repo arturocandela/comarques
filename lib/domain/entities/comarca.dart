@@ -1,7 +1,7 @@
 class Comarca {
   final String comarca;
   final String? capital;
-  final int? poblacio;
+  final String? poblacio;
   final String? img;
   final String? desc;
   final double? latitud;
@@ -10,12 +10,12 @@ class Comarca {
   Comarca({
     required this.comarca,
     this.capital,
-    String? poblacio,
+    this.poblacio,
     this.img,
     this.desc,
     this.latitud,
     this.longitud,
-  }) : poblacio = poblacio != null ? int.tryParse(poblacio) : null;
+  });
 
   @override
   String toString() {
