@@ -20,12 +20,14 @@ class Comarca {
   @override
   String toString() {
     return '''
+
     nom:            $comarca
     capital:        ${capital ?? '-'}
     poblacio:       ${poblacio ?? '-'}
     Imatge:         ${img ?? '-'}
     descripció:     ${desc ?? '-'}
     Coordenades:    (${latitud ?? '-'}, ${longitud ?? '-'})
+    
     ''';
   }
 }

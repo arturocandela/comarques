@@ -136,11 +136,18 @@ class AppComarques {
     }
   }
 
-  mostraComarques(String provincia) {
-    // TO-DO:
+  mostraComarques(String provincia) async {
+    // La llista de comarques s'obté directament
+    List<ComarcaSimple> comarques =
+        await repository.obtenirComarques(provincia);
 
-    // Obtenir la llista de comarques simplificada i mostrar-la per pantalla
-    print("\x1B[35m Funció pendent d'implementació \x1B[0m");
+    if (comarques.isNotEmpty) {
+      for (var comarca in comarques) {
+        print(comarca.toString());
+      }
+    } else {
+      print("\x1B[31mNo s'ha obtingut cap resposta\x1B[0m");
+    }
   }
 
   mostraInfoComarca(String comarca) async {

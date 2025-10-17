@@ -10,7 +10,7 @@
             "request": "launch",
             "type": "dart",
             "program": "bin/comarquescli.dart",
-            "args": ["infocomarca", "Comtat"]
+            "args": ["comarques", "Alacant"]
         }
     ]
 }

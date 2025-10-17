@@ -40,11 +40,10 @@ class ComarquesRepositoryImpl implements ComarquesRepository {
     try {
       // Posem l'await per esperar-nos a obtenir la resposta
       final jsonComarques = await remote.obtenirComarques(provincia);
-      return [];
-      // TO-DO: Descomentar quan implementem el Mapper
-      /*return jsonComarques
+
+      return jsonComarques
           .map((comarcaJSON) => ComarcaSimpleMapper.fromJson(comarcaJSON))
-          .toList();*/
+          .toList();
     } catch (e) {
       print("\x1B[31mError al recuperar les comarques: $e\x1B[0m");
       return [];
